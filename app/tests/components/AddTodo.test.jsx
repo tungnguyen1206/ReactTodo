@@ -28,7 +28,7 @@ describe('AddTodo', () => {
     expect(AddTodo).toExist();
   });
   
-  // Should call onSetCountdown with good input 
+  // Should call onNewTodo with good input 
   it ('should call onNewTodo with good input', () => {
     // Create a spy
     var spy = expect.createSpy();
@@ -45,7 +45,7 @@ describe('AddTodo', () => {
     expect(spy).toHaveBeenCalledWith('Go to the market');
   });
 
-  // Should not call onSetCountdown with bad input 
+  // Should not call onNewTodo with bad input 
   it ('should not call onNewTodo with bad input', () => {
     // Create a spy
     var spy = expect.createSpy();
