@@ -8,21 +8,36 @@ var Todo = React.createClass({
 
   //  PropTypes 
   propTypes: {
-    todo: React.PropTypes.object,
+    onToggle: React.PropTypes.func,
   },
 
+  /* 
+  * Handle toggle todo 
+  * 
+  * Using an arrow function in render creates a new function
+  * each time the component renders, which may have performance
+  * implications. For more informations: 
+  *   https://reactjs.org/docs/faq-functions.html */
+  onToggle: function(_id) {
+    // Avoid 'this'
+    var _Todo = this;
+    return () => {
+      _Todo.props.onToggle(_id);      
+    };
+  },
 
+  /* Render the component */
   render: function() {
 
     var _Todo = this;
     
     // Get values
-    // var {todo} = _Todo.props;
-    var {id, text} = _Todo.props;
+    var {id, text, completed} = _Todo.props;
 
     return (
-      <div>
-        <p>{`${id}. ${text}`}</p>
+      <div onClick={_Todo.onToggle(id)}>
+        <input type="checkbox" checked={completed}/>
+        {text}
       </div>
     );
   }
