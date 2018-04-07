@@ -6,6 +6,7 @@ var React = require('react');
 * Require components */
 var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
+var TodoSearch = require('TodoSearch');
 
 /* 
 * Define Todo component */
@@ -15,6 +16,8 @@ var TodoApp = React.createClass({
   * This is data to pass into TodoList */
   getInitialState: function() {
     return {
+      showCompleted: false,
+      searchText: '',
       todos: [
         {
           id: 1,
@@ -32,6 +35,16 @@ var TodoApp = React.createClass({
         }
       ],
     }
+  },
+
+  /* 
+  * This function handle search Todo */
+  handlingSearchTodo: function(_showCompleted, _searchText) {
+    var _TodoApp = this;
+    _TodoApp.setState({
+      showCompleted: _showCompleted,
+      searchText: _searchText
+    });
   },
 
   /*
@@ -67,6 +80,7 @@ var TodoApp = React.createClass({
       <div>
         <div className="row">
           <div className="columns small-centered small-10 medium-6 large-4">
+            <TodoSearch onSearch={_TodoApp.handlingSearchTodo}/>
             <TodoList todoList={todos}/>
             <AddTodo onNewTodo={_TodoApp.handlingNewTodo}/>
           </div>

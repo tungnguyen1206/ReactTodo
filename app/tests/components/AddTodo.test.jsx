@@ -29,7 +29,7 @@ describe('AddTodo', () => {
   });
   
   // Should call onSetCountdown with good input 
-  it ('should call onSetCountdown with good input', () => {
+  it ('should call onNewTodo with good input', () => {
     // Create a spy
     var spy = expect.createSpy();
     // Instantiate the AddTodo, plant the spy
@@ -46,7 +46,7 @@ describe('AddTodo', () => {
   });
 
   // Should not call onSetCountdown with bad input 
-  it ('should not call onSetCountdown with bad input', () => {
+  it ('should not call onNewTodo with bad input', () => {
     // Create a spy
     var spy = expect.createSpy();
     // Instantiate the AddTodo, plant the spy
