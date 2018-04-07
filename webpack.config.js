@@ -40,6 +40,8 @@ module.exports = {
     // Alias list
     alias: {
       TodoApp: 'app/components/TodoApp.jsx',
+      TodoList: 'app/components/TodoList.jsx',
+      Todo: 'app/components/Todo.jsx',
       
       applicationStyle: 'app/style/scss/style.scss',
     },

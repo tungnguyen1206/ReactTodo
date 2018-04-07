@@ -3,23 +3,55 @@
 var React = require('react');
 
 /* 
-* Define Todo component
-*
-* This use Stateless Functional Component 
-* For more information:
-*   https://code.tutsplus.com/tutorials/stateful-vs-stateless-functional-components-in-react--cms-29541 */
-var TodoApp = (props) => {
-  return ( 
-    <div>
-      <div className="row">
-        <div className="columns small-centered small-10 medium-6 large-4">
-          <h1>TodoApp Components</h1>
-          {props.children}
+* Require components */
+var TodoList = require('TodoList');
+
+/* 
+* Define Todo component */
+var TodoApp = React.createClass({
+  
+  /* 
+  * This is data to pass into TodoList */
+  getInitialState: function() {
+    return {
+      todos: [
+        {
+          id: 1,
+          text: 'Walk the dog',
+        },{
+          id: 2,
+          text: 'Feed the cats',
+        },
+        {
+          id: 3,
+          text: 'Clean the bedroom',
+        },{
+          id: 4,
+          text: 'Cook dinner',
+        }
+      ],
+    }
+  },
+
+  /* Render the component */
+  render: function() {
+
+    var _TodoApp = this;
+
+    // Get values
+    var {todos} = _TodoApp.state;
+
+    return ( 
+      <div>
+        <div className="row">
+          <div className="columns small-centered small-10 medium-6 large-4">
+            <TodoList todoList={todos}/>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+});
 
 /* 
 * Export the component */
