@@ -3,6 +3,10 @@
 var React = require('react');
 
 /* 
+* Require node-uuid library */
+var uuid = require('node-uuid');
+
+/* 
 * Require components */
 var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
@@ -20,17 +24,17 @@ var TodoApp = React.createClass({
       searchText: '',
       todos: [
         {
-          id: 1,
+          id: uuid(),
           text: 'Walk the dog',
         },{
-          id: 2,
+          id: uuid(),
           text: 'Feed the cats',
         },
         {
-          id: 3,
+          id: uuid(),
           text: 'Clean the bedroom',
         },{
-          id: 4,
+          id: uuid(),
           text: 'Cook dinner',
         }
       ],
@@ -61,7 +65,7 @@ var TodoApp = React.createClass({
         *   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax */
         ...oldTodos,
         {
-          id: Math.floor(5 + 56785 * Math.random()),
+          id: uuid(),
           text: _newTodoText
         }
       ]
