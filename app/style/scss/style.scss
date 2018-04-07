@@ -1,0 +1,14 @@
+/* DISABLE those variables to use float-grid */
+// $xy-grid: false;
+// $global-flex: false;
+/*********************************************/
+
+// Foundation
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
+
+// Custom variables 
+@import "base/variables";
+
+// Components
