@@ -12,7 +12,7 @@ var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
 /* 
 * Require components */
-// Your components here
+var TodoApp = require('TodoApp');
 
 /* 
 * Load foundation
@@ -41,6 +41,6 @@ ReactDOM.render(
   * When '/about' -> About
   * When '/examples' -> Examples
   */
-  <p>Boilerplate 3 Project</p>,
+  <TodoApp/>,
   document.getElementById('app')
 );  
