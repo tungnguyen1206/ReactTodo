@@ -14,9 +14,9 @@ var Todo = React.createClass({
   /* 
   * Handle toggle todo 
   * 
-  * Using an arrow function in render creates a new function
-  * each time the component renders, which may have performance
-  * implications. For more informations: 
+  * Use function returns function because we need to push up 
+  * the reference of function, not value of function
+  * For more informations: 
   *   https://reactjs.org/docs/faq-functions.html */
   onToggle: function(_id) {
     // Avoid 'this'

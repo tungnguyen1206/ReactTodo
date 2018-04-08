@@ -37,14 +37,23 @@ module.exports = {
   resolve: {
     // Current folder as root
     root: __dirname,
+    // Modules directories
+    // modulesDirectiories: [
+    //   'node_modules',
+    //   './app/components',
+    //   './app/api'
+    // ],
     // Alias list
     alias: {
+      // Component list
       TodoApp: 'app/components/TodoApp.jsx',
       TodoList: 'app/components/TodoList.jsx',
       Todo: 'app/components/Todo.jsx',
       AddTodo: 'app/components/AddTodo.jsx',
       TodoSearch: 'app/components/TodoSearch.jsx',
-      
+      // API list
+      TodoAPI: 'app/api/TodoAPI.jsx',
+      // Style list
       applicationStyle: 'app/style/scss/style.scss',
     },
     // extensions support

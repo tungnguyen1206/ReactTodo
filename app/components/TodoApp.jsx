@@ -13,6 +13,10 @@ var AddTodo = require('AddTodo');
 var TodoSearch = require('TodoSearch');
 
 /* 
+* Require APIs */
+var TodoAPI = require('TodoAPI');
+
+/* 
 * Define Todo component */
 var TodoApp = React.createClass({
   
@@ -22,27 +26,17 @@ var TodoApp = React.createClass({
     return {
       showCompleted: false,
       searchText: '',
-      todos: [
-        {
-          id: uuid(),
-          text: 'Walk the dog',
-          completed: true,
-        },{
-          id: uuid(),
-          text: 'Feed the cats',
-          completed: false,
-        },
-        {
-          id: uuid(),
-          text: 'Clean the bedroom',
-          completed: true,
-        },{
-          id: uuid(),
-          text: 'Cook dinner',
-          completed: false,
-        }
-      ],
+      todos: TodoAPI.getTodos(),
     }
+  },
+
+  /* 
+  * Save new Todos to local storage when the component was updated 
+  * 
+  * This method has some problems with tests: todos is not defined
+  * How to fix it? */
+  componentDidUpdate: function() {
+    TodoAPI.setTodos(this.state.todos);
   },
 
   /* 
