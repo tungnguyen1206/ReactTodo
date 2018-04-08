@@ -7,6 +7,10 @@ var React = require('react');
 var uuid = require('node-uuid');
 
 /* 
+* Require moment */
+var moment = require('moment');
+
+/* 
 * Require components */
 var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
@@ -66,6 +70,8 @@ var TodoApp = React.createClass({
           id: uuid(),
           text: _newTodoText,
           completed: false,
+          createdAt: moment().unix(),
+          completedAt: undefined
         }
       ]
     });
@@ -80,6 +86,7 @@ var TodoApp = React.createClass({
     var updatedTodos = _TodoApp.state.todos.map((todo) => {
       if (todo.id === _id) {
         todo.completed = !todo.completed;
+        todo.completedAt = todo.completed ? moment().unix() : undefined;
       }
       return todo;
     });

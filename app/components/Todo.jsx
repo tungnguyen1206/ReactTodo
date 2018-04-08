@@ -3,6 +3,10 @@
 var React = require('react');
 
 /* 
+* Require moment */
+var moment = require('moment');
+
+/* 
 * Define Todo component */
 var Todo = React.createClass({
 
@@ -32,12 +36,28 @@ var Todo = React.createClass({
     var _Todo = this;
     
     // Get values
-    var {id, text, completed} = _Todo.props;
+    var {id, text, completed, createdAt, completedAt} = _Todo.props;
+
+    // Render timeStamp
+    var renderTimeStamp = () => {
+      // Uncompleted
+      var timeStamp = createdAt;
+      var message = "Created ";
+
+      // Completed
+      if (completed) {
+        timeStamp = completedAt;
+        message = "Completed ";
+      }
+
+      return message + moment.unix(timeStamp).format('MMMM Do, YYYY @ hh:mm A');
+    };
 
     return (
       <div onClick={_Todo.onToggle(id)}>
         <input type="checkbox" checked={completed}/>
-        {text}
+        <p>{text}</p>
+        <p>{renderTimeStamp()}</p>
       </div>
     );
   }
