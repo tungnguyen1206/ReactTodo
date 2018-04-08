@@ -85,6 +85,63 @@ describe('TodoAPI', () => {
     }); 
   });
   
-  
+  describe('filterTodos', () => {
+    // Test data
+    var todos = [{
+      id:23,
+      text: 'test text',
+      completed: false
+    }, {
+      id:24,
+      text: 'test',
+      completed: true
+    }, {
+      id:25,
+      text: 'kennyS',
+      completed: false
+    }];
+
+    // Show completed 
+    it('should return all items of showCompleted is true', () => {
+      // Filt
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      // Verify result
+      expect(filteredTodos.length).toBe(3);
+    });
+
+    // Don't show completed
+    it('should only return items of showCompleted is false', () => {
+      // Filt
+      var filteredTodos = TodoAPI.filterTodos(todos, false, '');
+      // Verify result
+      expect(filteredTodos.length).toBe(2);
+    });
+
+    // Sort by completed
+    it('should sort by completed status', () => {
+      // Sort
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      // Verify result
+      expect(filteredTodos[0].completed).toBe(false);
+      expect(filteredTodos[1].completed).toBe(false);
+      expect(filteredTodos[2].completed).toBe(true);
+    });
+
+    // Searching properly with empty search text
+    it('should perform proper search with empty search text', () => {
+      // Search
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      // Verify result
+      expect(filteredTodos.length).toBe(3);
+    });
+
+    // Searching properly with non-empty search text
+    it('should perform proper search with non-empty search text', () => {
+      // Search
+      var filteredTodos = TodoAPI.filterTodos(todos, true, 'test');
+      // Verify result
+      expect(filteredTodos.length).toBe(2);
+    });
+  });
 
 });
