@@ -38,6 +38,9 @@ var Todo = React.createClass({
     // Get values
     var {id, text, completed, createdAt, completedAt} = _Todo.props;
 
+    // Conditional className for todo
+    var todoClassName = completed ? 'todo todo-completed' : 'todo';
+
     // Render timeStamp
     var renderTimeStamp = () => {
       // Uncompleted
@@ -54,10 +57,14 @@ var Todo = React.createClass({
     };
 
     return (
-      <div onClick={_Todo.onToggle(id)}>
-        <input type="checkbox" checked={completed}/>
-        <p>{text}</p>
-        <p>{renderTimeStamp()}</p>
+      <div className={todoClassName} onClick={_Todo.onToggle(id)}>
+        <div>
+          <input type="checkbox" checked={completed}/>
+        </div>
+        <div>
+          <p>{text}</p>
+          <p className="todo-subtext">{renderTimeStamp()}</p>
+        </div>
       </div>
     );
   }

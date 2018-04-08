@@ -54,4 +54,16 @@ describe('TodoList', () => {
     expect(todoComponents.length).toEqual(todos.length);
   });
 
+  // Should render properly
+  it('should render Nothing to do message', () => {
+    var todos = [];
+
+    // Instantiate TodoList component
+    var _TodoList = TestUtils.renderIntoDocument(<TodoList todoList={todos}/>);
+    var $el = $(ReactDOM.findDOMNode(_TodoList));
+
+    // Verify the result
+    expect($el.find('.container-message').length).toEqual(1);
+  });
+
 });

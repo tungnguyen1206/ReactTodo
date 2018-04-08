@@ -1,0 +1,33 @@
+// Main components
+.container {
+  background-color: $light-grey;
+}
+
+// The todo search box
+.container-header {
+  border-bottom: 1px solid $light-grey-border;
+  padding: 1mm;
+
+  label {
+    cursor: pointer;
+  }
+
+}
+
+// The Nothing to do message
+.container-message {
+  margin-top: 1rem;
+  text-align: center;
+  color: $light-message;
+}
+
+// The Todo list
+.container-body {
+  padding: 1mm;
+}
+
+// The AddTodo form
+.container-footer {
+  border-top: 1px solid $light-grey-border;
+  padding: 3mm 1mm 1mm 1mm;
+}

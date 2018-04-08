@@ -20,7 +20,7 @@ var TodoSearch = React.createClass({
   /* Render the component */
   render: function() {
     return (
-      <div>
+      <div className="container-header">
         <div>
           <input ref="searchText"
                  type="search" 
